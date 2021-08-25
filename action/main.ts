@@ -1,3 +1,5 @@
+import 'any-observable/register/rxjs';
+
 import { error, getInput, setFailed, setOutput } from '@actions/core';
 import { context } from '@actions/github';
 import { readFile } from 'jsonfile';
@@ -61,6 +63,13 @@ const getBuildInfo = (event: typeof context) => {
         branch: ref.replace('refs/heads/', ''),
         ref,
         sha,
+      };
+    }
+    case 'workflow_run': {
+      return {
+        sha: event.payload.workflow_run.head_sha,
+        branch: event.payload.workflow_run.head_branch,
+        slug: event.payload.workflow_run.head_repository.full_name,
       };
     }
     default: {

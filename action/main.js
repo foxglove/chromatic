@@ -50,6 +50,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
+require("any-observable/register/rxjs");
 var core_1 = require("@actions/core");
 var github_1 = require("@actions/github");
 var jsonfile_1 = require("jsonfile");
@@ -108,6 +109,13 @@ var getBuildInfo = function (event) {
                 branch: ref.replace('refs/heads/', ''),
                 ref: ref,
                 sha: sha
+            };
+        }
+        case 'workflow_run': {
+            return {
+                sha: event.payload.workflow_run.head_sha,
+                branch: event.payload.workflow_run.head_branch,
+                slug: event.payload.workflow_run.head_repository.full_name
             };
         }
         default: {
