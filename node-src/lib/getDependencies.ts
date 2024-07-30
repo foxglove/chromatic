@@ -25,7 +25,13 @@ export const getDependencies = async (
   }
 ) => {
   try {
-    const headTree = await buildDepTreeFromFiles(rootPath, manifestPath, lockfilePath, includeDev);
+    const headTree = await buildDepTreeFromFiles(
+      rootPath,
+      manifestPath,
+      lockfilePath,
+      includeDev,
+      false // strictOutOfSync
+    );
     return flattenDependencyTree(headTree.dependencies);
   } catch (e) {
     ctx.log.debug({ rootPath, manifestPath, lockfilePath }, 'Failed to get dependencies');
