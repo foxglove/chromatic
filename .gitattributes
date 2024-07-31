@@ -1,0 +1,2 @@
+dist/bin.js filter=lfs diff=lfs merge=lfs -text
+action/register.js filter=lfs diff=lfs merge=lfs -text

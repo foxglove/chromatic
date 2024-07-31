@@ -1,3 +1,16 @@
+# About this fork
+
+This fork allows us to experiment with changes to the [Chromatic CLI](https://github.com/chromaui/chromatic-cli/) and [GitHub Action](https://github.com/chromaui/action/). Unlike the upstream source repository, this repo has the dist files for both the CLI and GitHub Action checked in using Git LFS.
+
+To test and use changes:
+
+1. Create a PR `foxglove/chromatic`, including updated `dist` and `action` files. Reference the git commit in a PR against the `foxglove/app` repo and verify the GitHub Action results.
+2. Once the changes are tested, first merge the Chromatic PR in this repo and create a release tag. Update the app repo PR to reference this tag.
+
+(If we decide to continue relying on this fork, we should automate the process of pulling upstream changes and creating downstream releases.)
+
+---
+
 # Chromatic CLI
 
 Publishes your Storybook to Chromatic and kicks off tests if they're enabled.
