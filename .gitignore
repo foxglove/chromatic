@@ -4,6 +4,7 @@ node_modules
 *.log
 *.tgz
 .editorconfig
+.DS_Store
 
 # yarn 4
 **/.pnp.*
@@ -19,9 +20,7 @@ subdir-static
 test-storybook
 chromatic-build-*.xml
 chromatic-diagnostics.json
-dist
 bin
-action
 node
 storybook-out
 coverage
