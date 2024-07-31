@@ -19,9 +19,7 @@ subdir-static
 test-storybook
 chromatic-build-*.xml
 chromatic-diagnostics.json
-dist
 bin
-action
 node
 storybook-out
 coverage
